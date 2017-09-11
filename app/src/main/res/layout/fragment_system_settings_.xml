@@ -1,0 +1,150 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/diy_white_bgm"
+    tools:context="com.agluseek.farsoon.farsoononline.fragment.SystemSettings_Fragment">
+
+    <TextView
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="服务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/white"-->
+        <!--android:foreground="?android:attr/selectableItemBackgroundBorderless"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingStart="16dp"-->
+        <!--android:paddingEnd="16dp"-->
+        <!--android:paddingTop="16dp"-->
+        <!--android:paddingBottom="16dp"-->
+        <!--tools:targetApi="lollipop">-->
+
+        <!--<TextView-->
+            <!--android:text="接收红色报警"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingStart="16dp"-->
+            <!--android:paddingEnd="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/diy_black2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="5"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<Switch-->
+                <!--android:id="@+id/switch_RedMessage"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/white"-->
+        <!--android:foreground="?android:attr/selectableItemBackgroundBorderless"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingStart="16dp"-->
+        <!--android:paddingEnd="16dp"-->
+        <!--android:paddingTop="16dp"-->
+        <!--android:paddingBottom="16dp"-->
+        <!--tools:targetApi="lollipop">-->
+        <!--<TextView-->
+
+            <!--android:text="接收黄色报警"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingStart="16dp"-->
+            <!--android:paddingEnd="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/diy_black2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="5"-->
+            <!--android:layout_height="wrap_content" />-->
+        <!--<Switch-->
+            <!--android:id="@+id/switch_YellowMessage"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/white"-->
+        <!--android:foreground="?android:attr/selectableItemBackgroundBorderless"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingStart="16dp"-->
+        <!--android:paddingEnd="16dp"-->
+        <!--android:paddingTop="16dp"-->
+        <!--android:paddingBottom="16dp"-->
+        <!--tools:targetApi="lollipop">-->
+
+        <!--<TextView-->
+            <!--android:text="接收普通消息"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingStart="16dp"-->
+            <!--android:paddingEnd="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/diy_black2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="5"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <!--<Switch-->
+            <!--android:id="@+id/switch_NormalMessage"-->
+            <!--android:checked="true"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</LinearLayout>-->
+
+    <TextView
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp"
+        android:textColor="@color/red"
+        android:text="开发中，敬请期待..."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        tools:targetApi="lollipop">
+
+        <Button
+            android:id="@+id/exit_current_username"
+            android:text="退出当前账号"
+            style="?android:textAppearanceSmall"
+            android:textSize="16sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_background"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

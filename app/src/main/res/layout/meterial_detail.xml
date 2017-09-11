@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/diy_white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/metal_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/ToolbarPopupTheme">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:text="@string/device_loading"
+            android:textColor="@color/gray" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="机械性能好的矿物纤维复合尼龙粉末FS 3250MF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/meterial_iv_fs3250"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/fs_3250mf" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <TextView
+            android:id="@+id/feature_tv"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="特性:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/feature_content"
+                android:layout_below="@+id/feature_tv"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="16sp"
+                android:textColor="@color/diy_black2"
+                android:text="机械性能好，热变形温度高，收缩变化率小，具有良好的粉末材料重复利用性，产品具有优异的尺寸稳定性，由于矿物纤维的添加增强了材料的机械性能"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/apply_tv"
+            android:layout_below="@+id/feature_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="应用:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/apply_content"
+                android:layout_below="@+id/apply_tv"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="16sp"
+                android:textColor="@color/diy_black2"
+                android:text="适合于机械性能和耐热性能要求高的产品、零部件制造或利用粘结剂制造的大型件，以及复杂件与塑料模型、发动机冷却系统部件、汽车灯具、电动工具等。"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout><!--
+android:layerType="hardware"
+WebView 如使用硬件加速时 华为机型容易出现该类错误
+-->

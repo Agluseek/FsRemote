@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/about_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/ToolbarPopupTheme">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <WebView
+        android:id="@+id/about_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+    <!--<android.support.v4.widget.NestedScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:src="@drawable/logo_international" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:text="湖南华曙高科技有限责任公司是工业级3D打印领航企业、全国唯一的3D打印智能制造示范项目企业，拥有高分子复杂结构增材制造国家工程实验室、全球性应用开发体系和全球销售服务网络。专业从事选择性激光烧结（Plastic Laser Sintering，简称PLS）设备和选择性激光熔融（Metal Laser Sintering，简称MLS）设备的研发生产、尼龙和金属材料的研发生产到客户服务支持的产品矩阵。-->
+
+<!--创始人许小曙先生是世界杰出科学家。他于1986年赴美国攻读博士，获得科罗拉多矿业大学应用数学博士学位。毕业后，先后在美国焊接研究所、Trilogy 、3D打印的发明者3D Systems以及Solid Concepts 等公司担任技术总监，领衔研发了对制造业有革命性影响的“PLS技术”。2009年，许博士回国创办华曙高科，担任董事长、技术研发部总监，一直致力于推动中国3D打印的自主研发和创新。欧美设计：华曙高科的产品研发设计，由主持美国3D Systems 5代产品设计开发的原技术总监许小曙博士领军，囊括全球顶尖3D打印技术研发人才，并由超过20年运营经验的欧洲最大3D打印服务商德国LSS（Laser-Sinter Service) 公司提供应用研发支持。-->
+
+<!--"-->
+                <!--android:textSize="16sp" />-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:paddingTop="12dp"-->
+                <!--android:text="高端配置：华曙高科整合全球资源，所有设备的核心零部件，如激光振镜、激光器等，全部采用国际顶级品牌，确保产品质量。-->
+
+<!--"-->
+                <!--android:textSize="16sp" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="16sp"-->
+                <!--android:text="中国智造：华曙高科在长沙拥有32000平米的3D打印产业园、研发生产基地及现代化生产车间，拥有高分子复杂结构增材制造国家工程实验室、全国唯一的3D打印智能制造示范项目。-->
+
+<!--"-->
+                <!--/>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="16sp"-->
+                <!--android:text="世界品质： 华曙高科的产品具有世界级的优良品质，获得国内外客户的一致认可，并与德国BASF、法国Prodways、德国LSS等国际著名3D打印企业建立战略合作关系，为全球客户提供具有世界品质的3D打印解决方案。-->
+
+ <!--"/>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="16sp"-->
+
+                <!--android:text="软件开源：华曙高科秉承开源理念，积极推动3D打印的技术创新，打破欧美国家对3D打印的技术封锁，满足客户各种个性化需求。设备所使用的软件均是开源系统，针对不同需求，客户可更改软件参数。同时，华曙高科坚持拥抱客户，合作互助，共生共荣，为推动3D打印事业而不懈努力。-->
+
+<!--"/>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="16sp"-->
+                <!--android:text="服务完善：华曙高科拥有为客户量身定制的客户培训体制，由经验丰富的讲师对客户进行全方位的体验式培训。同时，华曙高科一直秉承为客户解决问题的态度来开展售后服务，确保在报修48小时内赶到客户方，及时高效地解决客户遇到的技术问题。-->
+
+<!--"/>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="18sp"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"-->
+                <!--android:text="如需知晓更多信息请关注华曙高科微信公众号："/>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="8dp"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@color/diy_white_bg" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="20sp"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"-->
+                <!--android:text="farsoon3d"-->
+                <!--android:textColor="@color/diy_red"-->
+                <!--android:gravity="center_horizontal"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:paddingRight="12dp"-->
+                <!--android:textSize="20sp"-->
+                <!--android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"-->
+                <!--android:text="Tel: 400-500-2155"-->
+                <!--android:gravity="center"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
+    <!--</android.support.v4.widget.NestedScrollView>-->
+</LinearLayout>

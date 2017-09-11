@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_company_news"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/company_about" />
+
+    <item
+        android:id="@+id/navigation_company_device"
+        android:icon="@mipmap/devices"
+        android:title="@string/company_device" />
+
+    <item
+        android:id="@+id/navigation_company_meterial"
+        android:icon="@mipmap/meterial"
+        android:title="@string/company_meterial" />
+    <item
+        android:id="@+id/navigation_my_device"
+        android:icon="@mipmap/account"
+        android:title="@string/my_device" />
+
+</menu>
