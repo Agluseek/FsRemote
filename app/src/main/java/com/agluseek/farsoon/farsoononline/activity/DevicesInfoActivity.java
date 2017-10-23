@@ -161,7 +161,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     attempGetDeviceInfo();
                 }
             };
-            timer.schedule(task, 1000, 10000);
+            timer.schedule(task, 5000, 2000);
         }
 
     }
@@ -200,7 +200,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
 
     private void attempGetDeviceInfo() {
 
-        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId;
+        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId + "asked=1";
         HttpUtils.doGet(api, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

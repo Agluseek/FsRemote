@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity  {
                     setFragment(DevicesItem_Fragment.newInstance(1, Receive));
                     getSupportActionBar().setTitle("设备信息");
                     return true;
-
             }
 
             return false;
@@ -146,7 +145,6 @@ public class MainActivity extends AppCompatActivity  {
                     MainActivity.this.finish();
 //                    System.exit(0);
                 }
-
                 break;
         }
 

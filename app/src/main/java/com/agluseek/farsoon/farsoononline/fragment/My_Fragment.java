@@ -113,6 +113,8 @@ public class My_Fragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.login_button:
                 attemptLogin();
+                System.out.println();
+
                 break;
 
         }

@@ -115,7 +115,7 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
                     System.out.println("这是不同ID的设备消息--------->>" + device.getNormalMsg());
                     System.out.println("这是不同ID的黄色报警--------->>" + device.getWarningMsg());
                     System.out.println("这是不同ID的红色报警--------->>" + device.getAlarmMsg());
-                        
+
                     if (device.getID() == id) {
                         Globals.deviceId = id;
                         Globals.getNormalMsg = device.getNormalMsg();
@@ -164,23 +164,20 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
 
     @Override
     public void onServiceDisconnected(ComponentName name) {
-
     }
 
     public interface OnListFragmentInteractionListener {
         void onClickListFragmentInteraction(View view, int position, String Devicesid);
-
     }
 
     private static void parseDeviceInfo(List<Map<String, String>> devices) {
         deviceList = new ArrayList<Device>();
         for (int i = 0; i < devices.size(); i++) {
             Map<String, String> deviceMap = devices.get(i);
-//            Set<Map.Entry<String,String>> entrySet = deviceMap.entrySet();
-//            for(Map.Entry<String,String> each : entrySet){
-//                LogUtil.d("DeviceFragment",each.getKey()+"->"+each.getValue());
-//            }
-
+            //         Set<Map.Entry<String,String>> entrySet = deviceMap.entrySet();
+            //         for(Map.Entry<String,String> each : entrySet){
+            //         LogUtil.d("DeviceFragment",each.getKey()+"->"+each.getValue());
+            //         }
             Device device = new Device();
             device.setName(deviceMap.get("Name"));
             device.setType(deviceMap.get("Type"));
@@ -196,7 +193,6 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
     }
 
     public void sendNotifation(int id, String title, String text) {
-
         NotificationCompat.Builder nBuilder =
                 new NotificationCompat.Builder(getActivity());
         nBuilder.setSmallIcon(R.mipmap.ic_launcher);

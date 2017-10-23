@@ -78,97 +78,84 @@ public class Company_news_Fragment extends Fragment {
         if (getArguments() != null) {
             mNewsInfo = getArguments().getString(ARG_NEWS_INFO);
         }
-
-
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
     }
     //company_news_fragment  主页面新闻布局Layout
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        long currentTime = System.currentTimeMillis();
-        getNewsJSON();
+            super.onCreateView(inflater, container, savedInstanceState);
+            long currentTime = System.currentTimeMillis();
+            getNewsJSON();
 
-        rootView = inflater.inflate(R.layout.company_news_fragment, container, false);
-        loadingBar = (ProgressBar) rootView.findViewById(R.id.loading_bar);
-        loadingText = (TextView) rootView.findViewById(R.id.loading_text);
-//        webView = (WebView) rootView.findViewById(R.id.company_news_webview);
-//        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.metal_detail_toolbar);
+            rootView = inflater.inflate(R.layout.company_news_fragment, container, false);
+            loadingBar = (ProgressBar) rootView.findViewById(R.id.loading_bar);
+            loadingText = (TextView) rootView.findViewById(R.id.loading_text);
+    //        webView = (WebView) rootView.findViewById(R.id.company_news_webview);
+    //        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.metal_detail_toolbar);
 
-        loading = (LinearLayout) rootView.findViewById(R.id.loading);
+            loading = (LinearLayout) rootView.findViewById(R.id.loading);
 
-        news_recyclerView = (RecyclerView) rootView.findViewById(R.id.news_small_recyclerView);
-        // 下拉刷新（更新新闻）
-        mSwipeRefresh = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefresh);
+            news_recyclerView = (RecyclerView) rootView.findViewById(R.id.news_small_recyclerView);
+            // 下拉刷新（更新新闻）
+            mSwipeRefresh = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefresh);
 
+            mSwipeRefresh.setColorSchemeResources(R.color.colorPrimaryDark);
+            mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
 
-        mSwipeRefresh.setColorSchemeResources(R.color.colorPrimaryDark);
-        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
+                    Snackbar.make(getView(), "欢迎来到华曙高科！", Snackbar.LENGTH_LONG).setAction("好的", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                Snackbar.make(getView(), "欢迎来到华曙高科！", Snackbar.LENGTH_LONG).setAction("好的", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                        }
+                    }).show();
+                    //下拉箭头MISS
 
-                    }
+                    mSwipeRefresh.setRefreshing(false);
+                }
+            });
 
-                }).show();
-                //下拉箭头MISS
+            news_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            news_recyclerView.setItemAnimator(new DefaultItemAnimator());
+            news_recyclerView.setHasFixedSize(true);
+            //  news_recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
-                mSwipeRefresh.setRefreshing(false);
-
-            }
-        });
-
-        news_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        news_recyclerView.setItemAnimator(new DefaultItemAnimator());
-        news_recyclerView.setHasFixedSize(true);
-        //  news_recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
-
-
-//        WebSettings ws = webView.getSettings();
-//
-//
-//        ws.setJavaScriptEnabled(true);
-//        ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-//        ws.setUseWideViewPort(true);
-//        ws.setLoadWithOverviewMode(true);
-//
-//        webView.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-//                String url = null;
-//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//                    url = request.getUrl().toString();
-//                }
-//                view.loadUrl(url);
-//                return true;
-//            }
-//
-//            @Override
-//            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-//                super.onPageStarted(view, url, favicon);
-//            }
-//
-//            @Override
-//            public void onPageFinished(WebView view, String url) {
-//                super.onPageFinished(view, url);
-////                showProgress(false);
-//
-//            }
-//        });
-//
-//        webView.loadUrl("http://www.farsoon.net/news/");
-        return rootView;
-
+    //        WebSettings ws = webView.getSettings();
+    //
+    //        ws.setJavaScriptEnabled(true);
+    //        ws.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+    //        ws.setUseWideViewPort(true);
+    //        ws.setLoadWithOverviewMode(true);
+    //
+    //        webView.setWebViewClient(new WebViewClient() {
+    //            @Override
+    //            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+    //                String url = null;
+    //                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+    //                    url = request.getUrl().toString();
+    //                }
+    //                view.loadUrl(url);
+    //                return true;
+    //            }
+    //            @Override
+    //            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+    //                super.onPageStarted(view, url, favicon);
+    //            }
+    //            @Override
+    //            public void onPageFinished(WebView view, String url) {
+    //                super.onPageFinished(view, url);
+    ////                showProgress(false);
+    //            }
+    //        });
+    //        webView.loadUrl("http://www.farsoon.net/news/");
+            return rootView;
     }
 
     private void getNewsJSON() {
@@ -178,7 +165,6 @@ public class Company_news_Fragment extends Fragment {
             public void onFailure(Call call, IOException e) {
 
             }
-
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
@@ -186,10 +172,10 @@ public class Company_news_Fragment extends Fragment {
                 s.obj = result;
                 s.what = UPDATE_NEWS;
                 handler.sendMessage(s);
+
             }
         });
     }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -258,10 +244,9 @@ public class Company_news_Fragment extends Fragment {
 
             System.out.println(split[0]);
             System.out.println(split[1]);
-            
-            String api = split[0] + ":/" + split[1];
 
-            System.out.println("截取出来的API----------->>"+api);
+            String api = split[0] + ":/" + split[1];
+            System.out.println("截取出来的API----------->>" + api);
             // https:ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2956560198,255477481&fm=11&gp=0.jpg
             //  https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504157141268&di=d79c6dd99a7cecb880e441cb15438ba6&imgtype=0&src=http%3A%2F%2Fpic68.nipic.com%2Ffile%2F20150603%2F21065026_153314635000_2.jpg
             GlideApp.with(getActivity())
@@ -280,7 +265,6 @@ public class Company_news_Fragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         int pos = holder.getLayoutPosition();
-
                         mRecyclerViewOnItemClickListener.setOnItemClick(holder.itemView, pos, id);
                     }
                 });
@@ -298,15 +282,12 @@ public class Company_news_Fragment extends Fragment {
             }
         }
 
-
         @Override
         public int getItemCount() {
             return mValues.size();
-
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder {
-
             TextView news_tv_title, news_tv_date, news_tv_summary;
             ImageView news_item_iv;
 
@@ -325,6 +306,7 @@ public class Company_news_Fragment extends Fragment {
          * @param url
          * @param imageView
          */
+
         public void loadImage(String url, ImageView imageView) {
             RequestBuilder<Bitmap> bitmapRequestBuilder = GlideApp.with(getActivity())
                     .asBitmap()
@@ -333,6 +315,7 @@ public class Company_news_Fragment extends Fragment {
                     .placeholder(R.mipmap.ic_launcher_round)
                     .fallback(R.mipmap.ic_launcher_round);
             bitmapRequestBuilder.into(imageView);
+
         }
     }
 
@@ -361,6 +344,7 @@ public class Company_news_Fragment extends Fragment {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+
             if (msg.what == UPDATE_NEWS) {
                 Receive = (String) msg.obj;
                 NewsList news = JSON.parseObject(Receive, NewsList.class);
@@ -368,6 +352,7 @@ public class Company_news_Fragment extends Fragment {
                 try {
                     parseInfoNews(Functions.readJson(newsListJSON));
                     System.out.println("mNewslist------>>>>>" + mNewslist.size());
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -392,10 +377,9 @@ public class Company_news_Fragment extends Fragment {
                     }
 
                 });
-                        news_recyclerView.setAdapter(mAdapter);
-                        mAdapter.notifyDataSetChanged();
+                news_recyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
         }
     };
-
 }

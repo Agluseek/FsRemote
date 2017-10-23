@@ -1,9 +1,7 @@
 package com.agluseek.farsoon.farsoononline.model;
-
 /**
  * Created by Farsoon on 2017/8/7.
  */
-
 public class DeviceStatus {
     private String ID;
     private String CurState;
@@ -13,6 +11,7 @@ public class DeviceStatus {
     private String CurHeight;
     private String Temp;
     private String RemainPowder;
+
     private String RemainTime;
 
     public String getID() {

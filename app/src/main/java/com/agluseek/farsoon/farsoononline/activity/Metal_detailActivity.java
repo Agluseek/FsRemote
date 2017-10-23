@@ -26,7 +26,7 @@ import io.vov.vitamio.utils.Log;
 
 /**
  * @author Farsoon Wu'Ang
- *  FS271 M 金属机详情
+ *         FS271 M 金属机详情
  */
 
 public class Metal_detailActivity extends AppCompatActivity {
@@ -34,6 +34,7 @@ public class Metal_detailActivity extends AppCompatActivity {
     private static LinearLayout loading;
     private static ProgressBar loadingBar;
     private static TextView loadingText;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,7 @@ public class Metal_detailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("FS-271M");
 
-    //  webView = new WebView(getApplicationContext());
+        //  webView = new WebView(getApplicationContext());
         webView = (WebView) findViewById(R.id.metal_detail_webview);
         loading = (LinearLayout) findViewById(R.id.loading);
         loadingBar = (ProgressBar) findViewById(R.id.loading_bar);
@@ -60,10 +61,9 @@ public class Metal_detailActivity extends AppCompatActivity {
         ws.setLoadWithOverviewMode(true);
 
 //      ws.setDomStorageEnabled(true);
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
-            {
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 String url = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                     url = request.getUrl().toString();
@@ -85,7 +85,6 @@ public class Metal_detailActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-
             }
 
             @Override
@@ -149,7 +148,7 @@ public class Metal_detailActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i("-------->", "onDestroy");
-            webView.destroy();
+        webView.destroy();
     }
 
     @Override
@@ -161,16 +160,15 @@ public class Metal_detailActivity extends AppCompatActivity {
 
         }
     }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if(webView.canGoBack() && keyCode == KeyEvent.KEYCODE_BACK){
-            webView.goBack();   //goBack()表示返回webView的上一页面
-            return true;
-        }
-
-        return false;
-    }
+    
+//
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if(webView.canGoBack() && keyCode == KeyEvent.KEYCODE_BACK){
+//            webView.goBack();   //goBack()表示返回webView的上一页面
+//            return true;
+//        }
+//        return false;
+//    }
 
 }
