@@ -161,7 +161,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     attempGetDeviceInfo();
                 }
             };
-            timer.schedule(task, 5000, 2000);
+            timer.schedule(task, 1000, 2000);
         }
 
     }
@@ -185,6 +185,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
     public static void actionStart(Context context) {
@@ -196,16 +197,16 @@ public class DevicesInfoActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         stopTimer();
+
     }
 
     private void attempGetDeviceInfo() {
-
-        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId + "asked=1";
+//TODO 实时更新URL 变更
+        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId +"&asked=1";
         HttpUtils.doGet(api, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 System.out.println(e);
-
             }
 
             @Override
@@ -218,7 +219,6 @@ public class DevicesInfoActivity extends AppCompatActivity {
                 handler.sendMessage(s);
             }
         });
-
     }
 
     private static void parseDeviceInfo(List<Map<String, String>> devices) {
@@ -227,6 +227,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
             Map<String, String> deviceMap = devices.get(i);
 
             DeviceStatus device = new DeviceStatus();
+            device.setCurStage(deviceMap.get("CurStage"));
             device.setID(deviceMap.get("ID"));
             device.setCurHeight(deviceMap.get("CurHeight"));
             device.setCurState(deviceMap.get("CurState"));

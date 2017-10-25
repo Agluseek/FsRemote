@@ -21,7 +21,6 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
     private List<DeviceStatus> mValues;
     private OnListInteractionListener mListener;
 
-
     public MyDeviceInfoItemRecyclerView(List<DeviceStatus> mValues, OnListInteractionListener mListener) {
         this.mValues = mValues;
         this.mListener = mListener;
@@ -35,6 +34,7 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
+//        System.out.println("当前状态------>>"+mValues.get(position).getCurState());
 
         viewHolder.CurState.setText(mValues.get(position).getCurState());
         viewHolder.PackageName.setText(mValues.get(position).getPackageName());
@@ -43,7 +43,7 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
         viewHolder.CurHeight.setText(mValues.get(position).getCurHeight()+" (mm)");
         viewHolder.Temp.setText(mValues.get(position).getTemp()+" ℃");
         viewHolder.RemainPowder.setText(mValues.get(position).getRemainPowder()+" (mm)");
-        viewHolder.RemainTime.setText(mValues.get(position).getRemainTime()+" (h:m)");
+        viewHolder.RemainTime.setText((Long.parseLong(mValues.get(position).getRemainTime())/3600)+" (h)");
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,8 +54,7 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
             }
         });
     }
-
-
+                
     @Override
     public int getItemCount() {
         return mValues.size();
@@ -85,7 +84,6 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
             Temp = (TextView) itemView.findViewById(R.id.Temp_tv);
             RemainPowder = (TextView) itemView.findViewById(R.id.RemainPowder_tv);
             RemainTime = (TextView) itemView.findViewById(R.id.RemainTime_tv);
-
         }
 
     }

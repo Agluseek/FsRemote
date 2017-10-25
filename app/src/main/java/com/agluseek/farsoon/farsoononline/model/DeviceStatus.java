@@ -11,8 +11,9 @@ public class DeviceStatus {
     private String CurHeight;
     private String Temp;
     private String RemainPowder;
-
+    private String CurStage;
     private String RemainTime;
+
 
     public String getID() {
         return ID;
@@ -76,6 +77,14 @@ public class DeviceStatus {
 
     public void setRemainPowder(String remainPowder) {
         RemainPowder = remainPowder;
+    }
+
+    public String getCurStage() {
+        return CurStage;
+    }
+
+    public void setCurStage(String curStage) {
+        CurStage = curStage;
     }
 
     public String getRemainTime() {

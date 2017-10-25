@@ -101,6 +101,7 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
             try {
 
                 parseDeviceInfo(Functions.readJson(mDeviceInfo));
+
                 System.out.println("设备数量------->>" + deviceList.size());
 
             } catch (Exception e) {

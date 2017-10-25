@@ -53,9 +53,7 @@ public class MainActivity extends AppCompatActivity  {
                     getSupportActionBar().setTitle("设备信息");
                     return true;
             }
-
             return false;
-
         }
 
     };
