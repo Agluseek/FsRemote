@@ -47,7 +47,6 @@ public class PasswordActivity extends AppCompatActivity {
     private String again_password;
     public static final int MODIFY_CODE = 1;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +119,7 @@ public class PasswordActivity extends AppCompatActivity {
                                             @Override
                                             public void onFailure(Call call, IOException e) {
                                                 System.out.println("提示框中失败的------>>" + e);
+
                                             }
 
                                             @Override

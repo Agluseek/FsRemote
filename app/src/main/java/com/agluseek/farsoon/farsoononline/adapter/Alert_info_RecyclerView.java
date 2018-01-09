@@ -37,7 +37,7 @@ public class Alert_info_RecyclerView extends RecyclerView.Adapter<Alert_info_Rec
         if (infos.get(position).getID() == Globals.deviceId) {
             holder.alert_info_tv.setText(infos.get(position).getContent());
         }
-            
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

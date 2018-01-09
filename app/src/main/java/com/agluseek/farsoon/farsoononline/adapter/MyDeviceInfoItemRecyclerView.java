@@ -97,8 +97,8 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
             viewHolder.MaterialName.setText(mValues.get(position).getMaterialName());
         }
 
-        viewHolder.PackageHeight.setText(mValues.get(position).getPackageHeight().substring(0,6) + " (mm)");
-        viewHolder.CurHeight.setText(mValues.get(position).getCurHeight().substring(0,6) + " (mm)");
+        viewHolder.PackageHeight.setText(mValues.get(position).getPackageHeight() + " (mm)");
+        viewHolder.CurHeight.setText(mValues.get(position).getCurHeight() + " (mm)");
         viewHolder.Temp.setText(mValues.get(position).getTemp() + " ℃");
         viewHolder.RemainPowder.setText(mValues.get(position).getRemainPowder() + " (mm)");
         viewHolder.RemainTime.setText((Long.parseLong(mValues.get(position).getRemainTime()) % (60 * 60 * 24)) / 3600 + " h " + (Long.parseLong(mValues.get(position).getRemainTime()) % (60 * 60)) / 60 + " m");
@@ -110,6 +110,7 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
                 if (mListener != null) {
                     int p = viewHolder.getLayoutPosition();
                     mListener.onClickListInteraction(v, p);
+
                 }
             }
         });
