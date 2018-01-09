@@ -18,12 +18,10 @@ import com.agluseek.farsoon.farsoononline.R;
  */
 
 public class SystemSettings_Fragment extends android.app.Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static View rootView;
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private Button exit_current_username;
@@ -39,7 +37,6 @@ public class SystemSettings_Fragment extends android.app.Fragment {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static SystemSettings_Fragment newInstance(String param1, String param2) {
         SystemSettings_Fragment fragment = new SystemSettings_Fragment();
         Bundle args = new Bundle();
@@ -90,7 +87,6 @@ public class SystemSettings_Fragment extends android.app.Fragment {
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -111,7 +107,6 @@ public class SystemSettings_Fragment extends android.app.Fragment {
 
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

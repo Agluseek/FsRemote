@@ -19,7 +19,6 @@
     <string name="my_device">我</string>
     <string name="device_loading">正在获取信息</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">警报设置</string>

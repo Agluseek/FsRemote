@@ -11,4 +11,5 @@ public class Globals {
     public static int getNormalMsg;
     public static int getWarningMsg;
     public static int getAlarmMsg;
+    public static String deviceName;
 }

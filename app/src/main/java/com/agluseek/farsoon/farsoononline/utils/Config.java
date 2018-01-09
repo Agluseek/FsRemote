@@ -13,7 +13,7 @@ public class Config {
     static public String getPushInfo = "/AsyncConnection.ashx?sessionid=";
     static public String getNewsList = "http://192.168.4.49/WebLearn/GetNewsList.aspx";
     static public String modifyAPI = "whomodify=";
-    static public String newPaasowrdAPI = "&newpassword=";
+    static public String newPasswordAPI = "&newpassword=";
     static public String Normalmsg = "&normalmsg=";
     static public String SystemSettingsNormal = "&normalmsg=";
     static public String SystemSettingsRed      = "&warningmsg=";

@@ -20,12 +20,14 @@ import android.widget.Toast;
 
 import com.agluseek.farsoon.farsoononline.R;
 import com.agluseek.farsoon.farsoononline.Service.MyService;
+import com.agluseek.farsoon.farsoononline.adapter.Alert_info_RecyclerView;
 import com.agluseek.farsoon.farsoononline.adapter.MyDeviceInfoItemRecyclerView;
 import com.agluseek.farsoon.farsoononline.fragment.DevicesItem_Fragment;
 import com.agluseek.farsoon.farsoononline.fragment.DividerGridItemDecoration;
 import com.agluseek.farsoon.farsoononline.fragment.SystemSettings_Fragment;
 import com.agluseek.farsoon.farsoononline.model.Device;
 import com.agluseek.farsoon.farsoononline.model.DeviceStatus;
+import com.agluseek.farsoon.farsoononline.model.PushInfo;
 import com.agluseek.farsoon.farsoononline.utils.Config;
 import com.agluseek.farsoon.farsoononline.utils.Functions;
 import com.agluseek.farsoon.farsoononline.utils.Globals;
@@ -43,31 +45,41 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+/*
+*   用户点击的当前设备实时信息Activity
+* */
 public class DevicesInfoActivity extends AppCompatActivity {
+    private static List<PushInfo> Alert_infoList;
     private int normalMsg;
     private int warningMsg;
     private int alarmMsg;
 
-
     private RecyclerView recyclerView;
+    private RecyclerView Alert_info_recyclerView;
     private ImageView devicesInfo_iv;
 
     private static List<DeviceStatus> deviceStatisList;
     private String DeviceStatusInfo_JSON;
     private MyDeviceInfoItemRecyclerView myDeviceInfoItemRecyclerView;
+    private Alert_info_RecyclerView alertInfoAdapter;
     public static final int UPDATE_DEVICESTATUS = 0;
     private Timer timer = null;
     private TimerTask task = null;
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
+
+//            获得该设备的实时信息
+
+
             if (msg.what == UPDATE_DEVICESTATUS) {
                 DeviceStatusInfo_JSON = (String) msg.obj;
                 DeviceStatus deviceStatus = JSON.parseObject(DeviceStatusInfo_JSON, DeviceStatus.class);
-                System.out.println(deviceStatus.getID());
-                System.out.println(deviceStatus.getRemainPowder());
+//                System.out.println(deviceStatus.getID());
+//                System.out.println(deviceStatus.getRemainPowder());
 
                 deviceStatisList = new ArrayList<DeviceStatus>();
                 deviceStatisList.add(deviceStatus);
@@ -79,11 +91,21 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     public void onClickListInteraction(View view, int position) {
 
                     }
-                });
 
+                });
                 myDeviceInfoItemRecyclerView.notifyDataSetChanged();
                 recyclerView.setAdapter(myDeviceInfoItemRecyclerView);
             }
+            Alert_infoList = new ArrayList<PushInfo>();
+            alertInfoAdapter = new Alert_info_RecyclerView(Alert_infoList, new MyDeviceInfoItemRecyclerView.OnListInteractionListener() {
+                @Override
+                public void onClickListInteraction(View view, int position) {
+
+                }
+            });
+            alertInfoAdapter.notifyDataSetChanged();
+            Alert_info_recyclerView.setAdapter(alertInfoAdapter);
+
         }
     };
 
@@ -93,21 +115,19 @@ public class DevicesInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_devices_info);
         Toolbar toolbar = (Toolbar) findViewById(R.id.devicesinfo_toolbar);
         recyclerView = (RecyclerView) findViewById(R.id.devices_status_recyclerView);
+        Alert_info_recyclerView = (RecyclerView) findViewById(R.id.devices_alert_recyclerView);
         devicesInfo_iv = (ImageView) findViewById(R.id.devices_iv);
+
         Toast.makeText(this, "正在加载实时数据，请稍候", Toast.LENGTH_LONG).show();
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-
         }
-
         ActionBar bar = getSupportActionBar();
-
         if (bar != null) {
             bar.setDisplayHomeAsUpEnabled(true);
         }
-
-        bar.setTitle(Globals.deviceId);
+        bar.setTitle(Globals.deviceName);
 
         if (Globals.deviceId.contains("121")) {
             devicesInfo_iv.setImageResource(R.mipmap.f121);
@@ -126,17 +146,22 @@ public class DevicesInfoActivity extends AppCompatActivity {
         } else if (Globals.deviceId.contains("eform")) {
             devicesInfo_iv.setImageResource(R.mipmap.eform);
         }
+
         System.out.println("这是点击的位置的ID--------->>" + Globals.deviceId);
 
+        Alert_info_recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Alert_info_recyclerView.setHasFixedSize(true);
+        Alert_info_recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+//recyclerview默认配置
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
-
+//        分割线
+//      recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
 
         startTimer();
         startService(new Intent(this, MyService.class));
-
     }
 
     private void stopTimer() {
@@ -161,16 +186,15 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     attempGetDeviceInfo();
                 }
             };
-            timer.schedule(task, 1000, 2000);
-        }
+            timer.schedule(task, 1000, 1500);
 
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.devicesetting, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
@@ -183,30 +207,28 @@ public class DevicesInfoActivity extends AppCompatActivity {
                 AlertSettings.actionStart(this);
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
-
     }
 
-    public static void actionStart(Context context) {
+    public static void actionStart(Context context, List<PushInfo> infoList) {
         Intent i = new Intent(context, DevicesInfoActivity.class);
         context.startActivity(i);
+        Alert_infoList = infoList;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         stopTimer();
-
     }
 
     private void attempGetDeviceInfo() {
-//TODO 实时更新URL 变更
-        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId +"&asked=1";
+             //TODO 实时更新URL 变更
+        String api = "http://" + Config.address + Config.loginAPI + Config.getDeviceAPI + Globals.deviceId + "&asked=1";
         HttpUtils.doGet(api, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                System.out.println(e);
+                System.out.println("实时url错误信息---->>" + e);
             }
 
             @Override
@@ -225,7 +247,6 @@ public class DevicesInfoActivity extends AppCompatActivity {
         deviceStatisList = new ArrayList<DeviceStatus>();
         for (int i = 0; i < devices.size(); i++) {
             Map<String, String> deviceMap = devices.get(i);
-
             DeviceStatus device = new DeviceStatus();
             device.setCurStage(deviceMap.get("CurStage"));
             device.setID(deviceMap.get("ID"));
@@ -238,7 +259,6 @@ public class DevicesInfoActivity extends AppCompatActivity {
             device.setRemainTime(deviceMap.get("RemainTime"));
             device.setTemp(deviceMap.get("Temp"));
             deviceStatisList.add(device);
-
         }
     }
 }

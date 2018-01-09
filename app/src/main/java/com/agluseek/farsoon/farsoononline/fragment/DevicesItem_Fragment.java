@@ -21,6 +21,7 @@ import com.agluseek.farsoon.farsoononline.R;
 import com.agluseek.farsoon.farsoononline.Service.MyService;
 import com.agluseek.farsoon.farsoononline.activity.DevicesInfoActivity;
 import com.agluseek.farsoon.farsoononline.model.Device;
+import com.agluseek.farsoon.farsoononline.model.PushInfo;
 import com.agluseek.farsoon.farsoononline.utils.Functions;
 import com.agluseek.farsoon.farsoononline.utils.Globals;
 
@@ -35,11 +36,8 @@ import static android.content.Context.NOTIFICATION_SERVICE;
  */
 public class DevicesItem_Fragment extends android.app.Fragment implements ServiceConnection {
 
-
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String ARG_DEVICE_INFO = "device-info";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
     private String mDeviceInfo;
     private MyService.EchoServiceBinder binder;
@@ -48,7 +46,6 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
 
     private static List<Device> deviceList;
     private OnListFragmentInteractionListener mListener;
-
 
     public DevicesItem_Fragment() {
 
@@ -89,9 +86,7 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
-
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
-
             }
 
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -118,28 +113,29 @@ public class DevicesItem_Fragment extends android.app.Fragment implements Servic
                     System.out.println("这是不同ID的红色报警--------->>" + device.getAlarmMsg());
 
                     if (device.getID() == id) {
+                        Globals.deviceName = device.getName();
                         Globals.deviceId = id;
                         Globals.getNormalMsg = device.getNormalMsg();
                         Globals.getWarningMsg = device.getWarningMsg();
                         Globals.getAlarmMsg = device.getAlarmMsg();
-                        DevicesInfoActivity.actionStart(getActivity());
-                    }
+                        List<PushInfo> infoList = service1.GetPushInfoList();
 
+                        // 设备实时信息Activity
+                        DevicesInfoActivity.actionStart(getActivity(), infoList);
+
+                    }
                 }
             });
 
             recyclerView.setAdapter(myItemRecyclerViewAdapter);
-
         }
 
-        /**
-         *
-         * 开启警报推送
+        /*
+         * 开启服务器推送
          */
 
         intentService = new Intent(getActivity(), MyService.class);
         getActivity().bindService(intentService, this, Context.BIND_AUTO_CREATE);
-
 
         return view;
 

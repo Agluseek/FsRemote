@@ -14,6 +14,7 @@ public class Device {
     private int NormalMsg;
     private int WarningMsg;
     private int AlarmMsg;
+    private int DeviceNumber;
 
     public int getAlarmSum() {
         return AlarmSum;

@@ -51,7 +51,7 @@
             android:paddingEnd="8dp"
             android:paddingStart="8dp"
             android:scaleType="fitStart"
-            android:src="@mipmap/edit" />
+            android:src="@mipmap/farsoon_logo" />
 
         <!--<TextView-->
         <!--android:id="@+id/news_title_tv"-->

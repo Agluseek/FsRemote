@@ -42,13 +42,16 @@ public class MainActivity extends AppCompatActivity  {
             switch (item.getItemId()) {
 
                 case R.id.navigation_systemSettings:
+                    // 服务设置
                     setFragment(new SystemSettings_Fragment());
                     return true;
                 case R.id.navigation_individualSettings:
+                    //个性设置
                     setFragment(new IndividualSettings_Fragment());
                     return true;
                 case R.id.navigation_deviceInfo:
                     //new DevicesInfo_Fragment()
+                    // 设备信息
                     setFragment(DevicesItem_Fragment.newInstance(1, Receive));
                     getSupportActionBar().setTitle("设备信息");
                     return true;
@@ -111,6 +114,7 @@ public class MainActivity extends AppCompatActivity  {
                     MainActivity.this.finish();
                 }
                 break;
+
             case R.id.app_exit:
                 AboutActivity.actionStart(MainActivity.this);
 
@@ -132,7 +136,6 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         switch (keyCode) {
-
             case KeyEvent.KEYCODE_BACK:
                 long currentTime = System.currentTimeMillis();
                 if (currentTime - FirstTime > 2000) {
@@ -145,9 +148,7 @@ public class MainActivity extends AppCompatActivity  {
                 }
                 break;
         }
-
         return super.onKeyUp(keyCode, event);
-
     }
 
     private void setFragment(Fragment fragment) {
@@ -167,9 +168,6 @@ public class MainActivity extends AppCompatActivity  {
             } else if (fragmentTag.equals(SystemSettings_Fragment.class.toString())) {
                 bar.setTitle(R.string.title_systemsettings);
             }
-
         }
     }
-
-
 }

@@ -1,8 +1,10 @@
 package com.agluseek.farsoon.farsoononline.model;
 /**
  * Created by Farsoon on 2017/8/7.
+ *
  */
 public class DeviceStatus {
+
     private String ID;
     private String CurState;
     private String PackageName;
@@ -11,9 +13,9 @@ public class DeviceStatus {
     private String CurHeight;
     private String Temp;
     private String RemainPowder;
-    private String CurStage;
+    private String  CurStage;
     private String RemainTime;
-
+    private String O2Percentage;
 
     public String getID() {
         return ID;
@@ -93,5 +95,13 @@ public class DeviceStatus {
 
     public void setRemainTime(String remainTime) {
         RemainTime = remainTime;
+    }
+
+    public String getO2Percentage() {
+        return O2Percentage;
+    }
+
+    public void setO2Percentage(String o2Percentage) {
+        O2Percentage = o2Percentage;
     }
 }

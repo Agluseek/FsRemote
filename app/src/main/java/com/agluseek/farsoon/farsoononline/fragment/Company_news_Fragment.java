@@ -159,12 +159,13 @@ public class Company_news_Fragment extends Fragment {
     }
 
     private void getNewsJSON() {
-        String api = "http://192.168.4.49/WebLearn/GetNewsList.aspx";
+        String api = "http://218.76.10.110:10022/FarsoonWeb/GetNewsList.aspx";
         HttpUtils.doGet(api, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
@@ -176,6 +177,7 @@ public class Company_news_Fragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -220,7 +222,7 @@ public class Company_news_Fragment extends Fragment {
             this.mValues = mValues;
             this.mRecyclerViewOnItemClickListener = mRecyclerViewOnItemClickListener;
         }
-
+        
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -253,7 +255,7 @@ public class Company_news_Fragment extends Fragment {
                     .asBitmap()
                     .load(api)
                     .centerCrop()
-                    .placeholder(R.mipmap.f2)
+                    .placeholder(R.mipmap.farsoon_logo)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.news_item_iv);
 
@@ -268,7 +270,6 @@ public class Company_news_Fragment extends Fragment {
                         mRecyclerViewOnItemClickListener.setOnItemClick(holder.itemView, pos, id);
                     }
                 });
-
                 holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
@@ -276,7 +277,6 @@ public class Company_news_Fragment extends Fragment {
                         mRecyclerViewOnItemClickListener.setOnItemLongClick(holder.itemView, pos);
 
                         return true;
-
                     }
                 });
             }
@@ -290,7 +290,6 @@ public class Company_news_Fragment extends Fragment {
         class MyViewHolder extends RecyclerView.ViewHolder {
             TextView news_tv_title, news_tv_date, news_tv_summary;
             ImageView news_item_iv;
-
             public MyViewHolder(View view) {
                 super(view);
                 news_tv_title = (TextView) view.findViewById(R.id.news_tv_title);
@@ -306,7 +305,6 @@ public class Company_news_Fragment extends Fragment {
          * @param url
          * @param imageView
          */
-
         public void loadImage(String url, ImageView imageView) {
             RequestBuilder<Bitmap> bitmapRequestBuilder = GlideApp.with(getActivity())
                     .asBitmap()
@@ -335,8 +333,9 @@ public class Company_news_Fragment extends Fragment {
             news_large.setSummary(newsMap.get("Summary"));
             news_large.setTitle(newsMap.get("Title"));
             news_large.setUrlPath(newsMap.get("UrlPath"));
-
+                
             mNewslist.add(news_large);
+
         }
     }
 

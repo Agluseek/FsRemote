@@ -25,7 +25,6 @@ import java.util.List;
  *         个性设置Fragment
  */
 public class IndividualSettings_Fragment extends android.app.Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -33,7 +32,6 @@ public class IndividualSettings_Fragment extends android.app.Fragment {
     private RecyclerView mRecyclerView;
     private List<Individual_Settings> mIndividual;
     private Individual_Adapter mAdapter;
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -53,7 +51,6 @@ public class IndividualSettings_Fragment extends android.app.Fragment {
      * @return A new instance of fragment IndividualSettings_Fragment.
      */
 
-    // TODO: Rename and change types and number of parameters
     public static IndividualSettings_Fragment newInstance(String param1, String param2) {
         IndividualSettings_Fragment fragment = new IndividualSettings_Fragment();
         Bundle args = new Bundle();
@@ -101,7 +98,6 @@ public class IndividualSettings_Fragment extends android.app.Fragment {
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);

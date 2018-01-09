@@ -57,22 +57,24 @@ public class BaseActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_company_news:
+                    // 公司新闻
                     setFragment(new Company_news_Fragment());
                     return true;
                 case R.id.navigation_company_device:
+                    // 设备
                     setFragment(new Company_device_Fragment());
                     return true;
                 case R.id.navigation_company_meterial:
+                    // 材料
                     setFragment(new Company_meterial_Fragment());
                     return true;
                 case R.id.navigation_my_device:
+                    // 我
                     setFragment(new My_Fragment());
-
                     //在此做判断用户是否已经登录
 //                    Intent i = new Intent(BaseActivity.this, LoginActivity.class);
 //                    startActivity(i);
                     return true;
-
             }
 
             return false;

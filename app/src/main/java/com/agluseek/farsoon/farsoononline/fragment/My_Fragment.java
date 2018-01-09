@@ -54,7 +54,7 @@ public class My_Fragment extends Fragment implements View.OnClickListener {
     //    private String username = "AppTest";
     //    private String password = "123";
 
-//    private String url = "http://192.168.4.110/Default.aspx?username=" + name + "&password=" + pw;
+    //    private String url = "http://192.168.4.110/Default.aspx?username=" + name + "&password=" + pw;
     private Handler handler = new Handler() {
 
         @Override
@@ -112,6 +112,7 @@ public class My_Fragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.login_button:
+
                 attemptLogin();
                 System.out.println();
 
@@ -120,6 +121,8 @@ public class My_Fragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+    // TODO: 2017/12/7 输入新密码为空格，修改成功后，退出程序 , 重新登录时，输入用户名密码为空点击登录也能登录
 
     private void attemptLogin() {
 
@@ -146,14 +149,13 @@ public class My_Fragment extends Fragment implements View.OnClickListener {
             mPasswordView.setError("密码不能为空");
             focusView = mPasswordView;
             cancel = true;
-
         }
 
         if (cancel) {
             focusView.requestFocus();
         }
 
-        //        showProgress(true);
+        // showProgress(true);
 
         String param = String.format("username=%s&password=%s", name, pw);
         String api = "http://" + Config.address + Config.loginAPI + "username=" + name + "&password=" + pw;

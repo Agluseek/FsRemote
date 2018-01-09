@@ -11,7 +11,9 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -26,8 +28,6 @@ import com.agluseek.farsoon.farsoononline.utils.HttpUtils;
 import com.alibaba.fastjson.JSON;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -37,6 +37,7 @@ import okhttp3.Response;
  * @author Farsoon Wu'Ang
  *         个性设置_修改密码
  */
+
 public class PasswordActivity extends AppCompatActivity {
     private Button commit_password;
     private TextInputEditText original_user_password;
@@ -46,6 +47,7 @@ public class PasswordActivity extends AppCompatActivity {
     private String again_password;
     public static final int MODIFY_CODE = 1;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,7 @@ public class PasswordActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("修改密码");
+
         username = (TextView) findViewById(R.id.passwordactivity_username);
         original_user_password = (TextInputEditText) findViewById(R.id.original_user_password);
         for_original_user_password = (TextInputEditText) findViewById(R.id.for_original_user_password);
@@ -70,7 +73,9 @@ public class PasswordActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //用户密码
                 useroriginal_password = original_user_password.getText().toString();
+                //确认密码
                 again_password = for_original_user_password.getText().toString();
 
                 boolean cancel = false;
@@ -81,17 +86,27 @@ public class PasswordActivity extends AppCompatActivity {
                     focusView = original_user_password;
                     cancel = true;
                 }
+                if (useroriginal_password.contains(" ")) {
+                    Toast.makeText(PasswordActivity.this, "修改失败，密码不能包含空格，请重新输入", Toast.LENGTH_SHORT).show();
+                    focusView = original_user_password;
+                    cancel = true;
+                }
                 if (TextUtils.isEmpty(again_password)) {
-                    for_original_user_password.setError("重复密码不能为空");
+                    for_original_user_password.setError("确认密码不能为空");
                     focusView = for_original_user_password;
                     cancel = true;
                 }
-                if (cancel) {
+                if (again_password.contains(" ")) {
+                    Toast.makeText(PasswordActivity.this, "修改失败，密码不能包含空格，请重新输入", Toast.LENGTH_SHORT).show();
+                    focusView = for_original_user_password;
+                    cancel = true;
+                }
 
+                if (cancel) {
                     focusView.requestFocus();
 
                 } else {
-
+                    // TODO: 2017/12/7 修改密码，发现不用输入原始密码就可以修改密码,修改密码应该要输入原始密码才能修改
                     AlertDialog.Builder builder = new AlertDialog.Builder(PasswordActivity.this);
                     builder.setMessage("确定要修改密码")
                             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -100,7 +115,7 @@ public class PasswordActivity extends AppCompatActivity {
                                     System.out.println("提示框");
                                     if (useroriginal_password.equals(again_password) && useroriginal_password != null && again_password != null) {
 
-                                        String api = "http://" + Config.address + Config.loginAPI + Config.modifyAPI + Globals.nowUsername + Config.newPaasowrdAPI + again_password;
+                                        String api = "http://" + Config.address + Config.loginAPI + Config.modifyAPI + Globals.nowUsername + Config.newPasswordAPI + again_password;
                                         HttpUtils.doGet(api, new Callback() {
                                             @Override
                                             public void onFailure(Call call, IOException e) {
@@ -141,9 +156,6 @@ public class PasswordActivity extends AppCompatActivity {
                             })
                             .create().show();
                 }
-
-
-
 
 
             }

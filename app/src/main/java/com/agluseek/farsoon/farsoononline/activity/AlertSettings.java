@@ -172,7 +172,7 @@ public class AlertSettings extends AppCompatActivity {
             bar.setDisplayHomeAsUpEnabled(true);
         }
 
-        bar.setTitle(Globals.deviceId + "   警报设置");
+        bar.setTitle(Globals.deviceName + "   警报设置");
 
         if (Globals.getNormalMsg == 1) {
             SharedPreferences settings = getSharedPreferences(Globals.deviceId, Context.MODE_PRIVATE);

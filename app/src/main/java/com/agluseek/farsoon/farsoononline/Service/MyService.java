@@ -33,6 +33,7 @@ import okhttp3.Response;
 
 public class MyService extends Service {
     public static final int UPDATE_PUSHALERM = 0;
+    private NotifyUtil currentNotify;
     private String messages;
     private Timer timer = null;
     private TimerTask task = null;
@@ -58,7 +59,6 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         return echoServiceBinder;
 
     }
@@ -67,7 +67,6 @@ public class MyService extends Service {
         public MyService getService() {
             return MyService.this;
         }
-
 
     }
 
@@ -78,7 +77,6 @@ public class MyService extends Service {
                 @Override
                 public void run() {
                     attempGetPushInfo();
-
                 }
 
             };
@@ -92,6 +90,11 @@ public class MyService extends Service {
             task.cancel();
         }
     }
+//  普通消息及警报推送
+    public List<PushInfo> GetPushInfoList() {
+        List<PushInfo> list = JSON.parseArray(messages, PushInfo.class);
+        return list;
+    }
 
     private void attempGetPushInfo() {
         String api = "http://" + Config.address + Config.getPushInfo + Globals.nowUsername;
@@ -104,7 +107,8 @@ public class MyService extends Service {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
-                System.out.println(result);
+                System.out.println(System.currentTimeMillis()+"推送的报警"+result);
+
                 PushStatus pushResult = JSON.parseObject(result, PushStatus.class);
                 String messages = pushResult.getMessages();
                 Message s = Message.obtain();
@@ -117,6 +121,8 @@ public class MyService extends Service {
     }
 
     private Handler handler = new Handler() {
+
+//        获取到推送警报的消息
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -145,7 +151,7 @@ public class MyService extends Service {
         //实例化工具类，并且调用接口
         NotifyUtil notify1 = new NotifyUtil(this, id);
         notify1.notify_normal_singline(pIntent, smallIcon, title + content, title, content, true, true, false);
-
+        currentNotify = notify1;
     }
 
     public void sendNotifation(int id, String title, String text) {
@@ -162,5 +168,4 @@ public class MyService extends Service {
         notifyMgr.notify(id, nBuilder.build());
 
     }
-
 }

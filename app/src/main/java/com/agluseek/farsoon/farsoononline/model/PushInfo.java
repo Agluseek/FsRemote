@@ -50,4 +50,5 @@ public class PushInfo {
     public void setContent(String content) {
         Content = content;
     }
+
 }

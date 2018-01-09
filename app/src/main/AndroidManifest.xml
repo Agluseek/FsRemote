@@ -52,6 +52,7 @@
             android:name=".activity.Metal_FS121MD_detailsActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
         <activity
             android:name=".activity.Nylon_252P_detailsActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -120,6 +121,7 @@
             android:name=".activity.FS_IN718_Metal_detailsActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
         <activity
             android:name=".activity.FS_Ta_Metal_detailsActivity"
             android:theme="@style/AppTheme.NoActionBar">

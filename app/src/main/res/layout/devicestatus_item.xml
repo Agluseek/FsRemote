@@ -77,4 +77,13 @@
         android:text="123."
         android:textColor="@color/diy_black2"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Percentage_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|end"
+        android:text="123."
+        android:textColor="@color/diy_black2"
+        android:textSize="18sp" />
 </LinearLayout>
