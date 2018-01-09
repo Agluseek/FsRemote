@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.agluseek.farsoon.farsoononline.R;
 import com.agluseek.farsoon.farsoononline.model.PushInfo;
+import com.agluseek.farsoon.farsoononline.utils.Globals;
 
 import java.util.List;
 
@@ -33,7 +34,10 @@ public class Alert_info_RecyclerView extends RecyclerView.Adapter<Alert_info_Rec
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.alert_info_tv.setText(infos.get(position).getContent());
+        if (infos.get(position).getID() == Globals.deviceId) {
+            holder.alert_info_tv.setText(infos.get(position).getContent());
+        }
+            
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
