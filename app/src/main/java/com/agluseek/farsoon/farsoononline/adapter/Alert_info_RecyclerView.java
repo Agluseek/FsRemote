@@ -55,12 +55,13 @@ public class Alert_info_RecyclerView extends RecyclerView.Adapter<Alert_info_Rec
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        //       报警消息或普通消息
+        //报警消息或普通消息
         public TextView alert_info_tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             alert_info_tv = (TextView) itemView.findViewById(R.id.alert_info_tv);
+
         }
     }
 }

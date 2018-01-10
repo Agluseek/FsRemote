@@ -80,7 +80,6 @@ public class PasswordActivity extends AppCompatActivity {
                 boolean cancel = false;
                 View focusView = null;
                 if (TextUtils.isEmpty(useroriginal_password)) {
-
                     original_user_password.setError("新密码不能为空");
                     focusView = original_user_password;
                     cancel = true;
@@ -97,6 +96,16 @@ public class PasswordActivity extends AppCompatActivity {
                 }
                 if (again_password.contains(" ")) {
                     Toast.makeText(PasswordActivity.this, "修改失败，密码不能包含空格，请重新输入", Toast.LENGTH_SHORT).show();
+                    focusView = for_original_user_password;
+                    cancel = true;
+                }
+                if (useroriginal_password.length() < 6) {
+                    Toast.makeText(PasswordActivity.this, "修改失败，密码过于简单，不能少于6位", Toast.LENGTH_SHORT).show();
+                    focusView = original_user_password;
+                    cancel = true;
+                }
+                if (again_password.length() < 6) {
+                    Toast.makeText(PasswordActivity.this, "修改失败，密码过于简单，不能少于6位", Toast.LENGTH_SHORT).show();
                     focusView = for_original_user_password;
                     cancel = true;
                 }

@@ -86,7 +86,8 @@
                     android:imeOptions="actionGo"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    tools:ignore="InvalidImeActionId" />
             </android.support.design.widget.TextInputLayout>
 
             <!--<LinearLayout-->

@@ -7,14 +7,16 @@
     tools:context="com.agluseek.farsoon.farsoononline.fragment.DevicesInfo_Fragment">
 
     <!--<android.support.v4.widget.NestedScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:fillViewport="true"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <LinearLayout
+    <LinearLayout
 
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,176 +41,194 @@
             android:text="设备状态"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
-
-            <RelativeLayout
-                android:id="@+id/device_info_relative"
-                android:paddingBottom="4dp"
-                android:layout_width="match_parent"
-                android:layout_weight="3"
-                android:layout_height="0dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/diy_white"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/device_name_ll"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="当前状态  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="建造包名  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="材料名称  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="建造高度  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="当前高度  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="当前温度  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="剩余粉量  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="剩余时间  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="16dp"
-                    android:paddingStart="16dp"
-                    android:text="氧含量比  :"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/diy_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.5"
-                android:orientation="vertical">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/devices_status_recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </android.support.v7.widget.RecyclerView>
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-             </RelativeLayout>
-
-            <RelativeLayout
-
-                android:id="@+id/alert_msg_relative"
-                android:layout_width="wrap_content"
-                android:paddingTop="4dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_below="@+id/device_info_relative"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginStart="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="报警消息"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20sp"
-                    tools:ignore="NotSibling,UnknownId" />
-            </RelativeLayout>
+            android:textSize="18sp" />
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:id="@+id/device_info_relative"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_below="@+id/alert_msg_relative"
-                android:paddingEnd="16dp"
-                android:paddingStart="16dp"
-                android:id="@+id/devices_alert_recyclerView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="NotSibling">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4dp"
+                android:background="@color/diy_white"
+                android:orientation="horizontal">
 
-            </android.support.v7.widget.RecyclerView>
+                <LinearLayout
+                    android:id="@+id/device_name_ll"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="当前状态  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="建造包名  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="材料名称  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="建造高度  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="当前高度  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="当前温度  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="剩余粉量  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="剩余时间  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:text="氧含量比  :"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/diy_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+
+                        android:id="@+id/devices_status_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/device_name_ll"
+                        android:layout_alignStart="@+id/device_name_ll"
+                        android:layout_alignTop="@+id/device_name_ll"
+
+                        tools:ignore="NotSibling">
+
+                    </android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+            </LinearLayout>
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5">
+
+            <RelativeLayout
+                android:id="@+id/alert_msg_relative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/fen_ge_xian"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="@color/diy_white_bg" />
+
+                <!--<TextView-->
+                <!--android:layout_below="@+id/device_info_relative"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:paddingBottom="4dp"-->
+                <!--android:text="报警消息"-->
+                <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+                <!--android:textColor="@color/colorPrimaryDark"-->
+                <!--android:textSize="18sp"-->
+                <!--tools:ignore="NotSibling,UnknownId" />-->
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.v7.widget.RecyclerView
+                        android:layout_below="@+id/fen_ge_xian"
+                    android:id="@+id/devices_alert_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    tools:ignore="NotSibling">
+
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
         </LinearLayout>
+
+    </LinearLayout>
     <!--</android.support.v4.widget.NestedScrollView>-->
 </LinearLayout>

@@ -4,8 +4,9 @@ package com.agluseek.farsoon.farsoononline.utils;
  * Created by Farsoon on 2017/7/24.
  *
  */
+
 public class Config {
-    static public String address = "192.168.4.111";
+    static public String address = "218.76.10.110:10020";
     static public String port = "8087";
     static public int videoQuality = 50;
     static public String loginAPI = "/Default.aspx?";

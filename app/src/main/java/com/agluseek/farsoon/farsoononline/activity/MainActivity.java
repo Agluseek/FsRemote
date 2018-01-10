@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity  {
             }
             return false;
         }
-
     };
 
     @Override
@@ -84,7 +83,6 @@ public class MainActivity extends AppCompatActivity  {
         BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setFragment(DevicesItem_Fragment.newInstance(1, Receive));
-
 
         // 设备具体信息
 //        setFragment(new DevicesInfo_Fragment());

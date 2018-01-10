@@ -71,9 +71,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-
 //            获得该设备的实时信息
-
 
             if (msg.what == UPDATE_DEVICESTATUS) {
                 DeviceStatusInfo_JSON = (String) msg.obj;
@@ -91,11 +89,11 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     public void onClickListInteraction(View view, int position) {
 
                     }
-
                 });
                 myDeviceInfoItemRecyclerView.notifyDataSetChanged();
                 recyclerView.setAdapter(myDeviceInfoItemRecyclerView);
             }
+
             Alert_infoList = new ArrayList<PushInfo>();
             alertInfoAdapter = new Alert_info_RecyclerView(Alert_infoList, new MyDeviceInfoItemRecyclerView.OnListInteractionListener() {
                 @Override
@@ -153,12 +151,13 @@ public class DevicesInfoActivity extends AppCompatActivity {
         Alert_info_recyclerView.setHasFixedSize(true);
         Alert_info_recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-//recyclerview默认配置
+        //recyclerview默认配置
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        分割线
-//      recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
+        //        分割线
+        //      recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
 
         startTimer();
         startService(new Intent(this, MyService.class));
@@ -186,7 +185,7 @@ public class DevicesInfoActivity extends AppCompatActivity {
                     attempGetDeviceInfo();
                 }
             };
-            timer.schedule(task, 1000, 1500);
+            timer.schedule(task, 1000, 2500);
 
         }
     }

@@ -86,16 +86,23 @@ public class MyDeviceInfoItemRecyclerView extends RecyclerView.Adapter<MyDeviceI
                 break;
         }
 
-        if (mValues.get(position).getPackageName().contains("")) {
-            viewHolder.PackageName.setText(null);
-        } else {
-            viewHolder.PackageName.setText(mValues.get(position).getPackageName());
-        }
-        if (mValues.get(position).getMaterialName().contains("")) {
-            viewHolder.MaterialName.setText(null);
-        } else {
-            viewHolder.MaterialName.setText(mValues.get(position).getMaterialName());
-        }
+//        if (mValues.get(position).getPackageName().contains("")) {
+//            viewHolder.PackageName.setText(null);
+//        } else {
+//            viewHolder.PackageName.setText(mValues.get(position).getPackageName());
+//        }
+//        if (mValues.get(position).getMaterialName().contains("")) {
+//            viewHolder.MaterialName.setText(null);
+//        } else {
+//            viewHolder.MaterialName.setText(mValues.get(position).getMaterialName());
+//        }
+//        System.out.println("包名数组--->>" + split[4]);
+//        System.out.println("包名----->>" + mValues.get(position).getPackageName());
+//        System.out.println("材料名----->>" + mValues.get(position).getMaterialName());
+        String[] split = mValues.get(position).getPackageName().split("\\\\");
+
+        viewHolder.PackageName.setText(split[4]);
+        viewHolder.MaterialName.setText(mValues.get(position).getMaterialName());
 
         viewHolder.PackageHeight.setText(mValues.get(position).getPackageHeight() + " (mm)");
         viewHolder.CurHeight.setText(mValues.get(position).getCurHeight() + " (mm)");
